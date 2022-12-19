@@ -16,6 +16,14 @@
             Import 1 Million Data form csv
         </h1>
 
+        <form action="">
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Default file input example</label>
+                <input class="form-control" type="file" id="formFile">
+            </div>
+
+            <button class="btn btn-primary" type="submit">Upload</button>
+        </form>
     </div>
 </body>
 </html>
