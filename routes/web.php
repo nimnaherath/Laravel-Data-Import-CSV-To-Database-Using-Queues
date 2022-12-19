@@ -18,3 +18,6 @@ Route::get('/',[UploadDataController::class,'index']);
 
 Route::post("/upload",[UploadDataController::class,'upload'])
     ->name('upload');
+
+
+Route::get('/batch', [UploadDataController::class, 'batch']);
