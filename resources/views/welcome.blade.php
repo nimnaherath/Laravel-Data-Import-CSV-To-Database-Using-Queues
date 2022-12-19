@@ -17,16 +17,27 @@
             </div>
         @endif
 
-        <form action="{{route("upload")}}" method="post" enctype="multipart/form-data">
-            @csrf
+        @if($id != null)
+            <div class="alert alert-primary">
+                <p>
+                    Importing Data
 
-            <div class="mb-3">
-                <label for="formFile" class="form-label">Default file input example</label>
-                <input class="form-control" type="file" id="formFile" name="file">
+                </p>
             </div>
 
-            <button class="btn btn-primary" type="submit">Upload</button>
-        </form>
+        @else
+            <form action="{{route("upload")}}" method="post" enctype="multipart/form-data">
+                @csrf
+
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Default file input example</label>
+                    <input class="form-control" type="file" id="formFile" name="file">
+                </div>
+
+                <button class="btn btn-primary" type="submit">Upload</button>
+            </form>
+        @endif
+
 
     </div>
 

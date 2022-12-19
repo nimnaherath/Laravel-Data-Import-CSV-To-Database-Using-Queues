@@ -11,7 +11,16 @@ class UploadDataController extends Controller
 {
     public function index()
     {
-        return view("welcome");
+        $batches = DB::table('job_batches')->where('pending_jobs', '>', 0)->get();
+        if (count($batches) > 0) {
+            $id =  Bus::findBatch($batches[0]->id)->id;
+            return view("welcome")
+                ->with("id", $id);
+        }
+        else{
+            return view("welcome")
+                ->with("id", null);
+        }
     }
 
     public function upload(Request $request)
