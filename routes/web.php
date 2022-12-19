@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UploadDataController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[UploadDataController::class,'index']);
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post("/upload",[UploadDataController::class,'upload'])
+    ->name('upload');
