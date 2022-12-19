@@ -14,10 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[UploadDataController::class,'index']);
+Route::get('/',[UploadDataController::class,'index'])
+    ->name("home");
 
 Route::post("/upload",[UploadDataController::class,'upload'])
     ->name('upload');
 
 
-Route::get('/batch', [UploadDataController::class, 'batch']);
+Route::get('/batch', [UploadDataController::class, 'batch'])
+    ->name("view.batch");
+
+Route::get("/view-process",[UploadDataController::class,'viewProcess'])
+    ->name("view.process");

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Jobs\ImportDataProcess;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Bus;
+use Illuminate\Support\Facades\DB;
 
 class UploadDataController extends Controller
 {
@@ -37,12 +38,26 @@ class UploadDataController extends Controller
             $batch->add(new ImportDataProcess($data, $header));
         }
 
-        return $batch;
+        return redirect()->route("view.process");
     }
 
     public function batch()
     {
         $batchId = request('id');
         return Bus::findBatch($batchId);
+    }
+
+    public function viewProcess()
+    {
+        $batches = DB::table('job_batches')->where('pending_jobs', '>', 0)->get();
+        if (count($batches) > 0) {
+            $id =  Bus::findBatch($batches[0]->id)->id;
+            return view("process")
+                ->with("id", $id);
+        }
+        else{
+            return view("process")
+                ->with("id", null);
+        }
     }
 }
