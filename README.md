@@ -85,4 +85,4 @@ Select csv file in `csv` folder in the project file and upload
 
 Then see Data importing process
 
-![Importing](https://github.com/nimnaherath/Laravel-Data-Import-CSV-To-Database-Using-Queues/blob/master/img/3.jpg)
+![Importing](https://github.com/nimnaherath/Laravel-Data-Import-CSV-To-Database-Using-Queues/blob/master/img/3.JPG)
