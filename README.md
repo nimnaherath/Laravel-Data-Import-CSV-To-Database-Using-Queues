@@ -74,3 +74,8 @@ start executing jobs
 ```
 $ php artisan queue:work
 ```
+
+## Usage 
+
+Open Browser visit `http://127.0.0.1:8000/`
+![Home Page](https://github.com/nimnaherath/Laravel-Data-Import-CSV-To-Database-Using-Queues/blob/master/img/1.jpg)
